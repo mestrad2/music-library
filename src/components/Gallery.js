@@ -14,3 +14,5 @@ function Gallery(props){
         </div>
     )
 }
+
+export default Gallery
