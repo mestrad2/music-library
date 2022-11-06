@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react'
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 
@@ -42,7 +43,7 @@ function ArtistView() {
         <div>
             {artistData.length > 0 ? <h2>{artistData[0].artistName}</h2> : <h2>Loading...</h2>}
             {navButtons()}
-            {allData}
+            {renderAlbums}
         </div>
     )
     
