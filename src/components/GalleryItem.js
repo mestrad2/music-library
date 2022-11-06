@@ -59,7 +59,6 @@ function GalleryItem(props) {
 
             {/* This simple ternary shows the simple view when 'view' is false! */}
             {view ? detailView() : simpleView()}
-
         </div>
     )
 
