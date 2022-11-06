@@ -1,7 +1,9 @@
 import { useEffect, useState, Suspense } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
+import Spinner from './components/Spinner'
 import { createResource as fetchData } from './helper'
+
 
 
 function App() {
@@ -9,14 +11,18 @@ function App() {
   let [message, setMessage] = useState('Search for Music!')
   let [data, setData] = useState(null)
 
-  const API_URL = 'https://itunes.apple.com/search?term='
-
   useEffect(() => {
     if (search) {
+      document.title=`${search} Music`
+      console.log(fetchData(search))
       setData(fetchData(search))
-    }
+  }
   }, [search])
 
+  const handleSearch = (e, term) => {
+    e.preventDefault()
+    setSearch(term)
+  }
 
   const renderGallery = () => {
     if (data) {
@@ -26,11 +32,6 @@ function App() {
         </Suspense>
       )
     }
-  }
-
-  const handleSearch = (e, term) => {
-    e.preventDefault()
-    setSearch(term)
   }
 
   return (

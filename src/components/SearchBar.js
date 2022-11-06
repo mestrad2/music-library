@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-function SearchBar(props){
+function SearchBar(props) {
+    let [search, setSearch] = useState('')
+    
     return (
-            <form>
-                <input type="text" placeholder="Search Here"
-                    onChange={
-                        (e) => props.handleSearch(e, e.target.value)
-                    } />
-                <input type="submit" />
-            </form>
+        <form onSubmit={ (e) => props.handleSearch(e, search) }>
+            <input type="text" placeholder="Enter a search term here"
+                onChange={ (e) => setSearch(e.target.value) } />
+            <input type="submit" />
+        </form>
     )
 }
 
